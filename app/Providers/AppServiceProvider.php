@@ -3,6 +3,13 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use App\Models\Client;
+use App\Models\Deal;
+use App\Models\Task;
+use App\Policies\ClientPolicy;
+use App\Policies\DealPolicy;
+use App\Policies\TaskPolicy;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::policy(Client::class, ClientPolicy::class);
+        Gate::policy(Deal::class, DealPolicy::class);
+        Gate::policy(Task::class, TaskPolicy::class);
     }
 }
