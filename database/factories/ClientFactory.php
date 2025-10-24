@@ -19,7 +19,7 @@ class ClientFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'name' => $this->faker->company()(),
+            'name' => $this->faker->company(),
             'email' => $this->faker->unique()->companyEmail(),
             'phone' => $this->faker->phoneNumber(),
             'notes' => $this->faker->sentence(),
